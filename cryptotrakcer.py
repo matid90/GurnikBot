@@ -2,15 +2,28 @@ import discord
 import cryptocompare
 import asyncio
 import datetime
+import json
 
 client = discord.Client()
 
-
+config = {}
+channel_id=0
+token = ''
+with open('config.json') as f:
+        config = json.load(f)
+        channel_id = config['channel_id']
+        token = config['token']
 
 @client.event
 async def on_ready():
+
+    
+    
+
+        
+
     print('We have logged in as {0.user}'.format(client))
-    channel = client.get_channel(channel id)
+    channel = client.get_channel(channel_id)
     while(True):
         embed=discord.Embed(title="Etherum", description=str(cryptocompare.get_price('ETH','USD')['ETH']['USD'])+"$")
         embed.set_thumbnail(url="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ethereum-icon-purple.svg/1200px-Ethereum-icon-purple.svg.png")
@@ -22,5 +35,5 @@ async def on_ready():
         await asyncio.sleep(10)
 
 
-
-client.run('token')
+print(token)
+client.run(token)
