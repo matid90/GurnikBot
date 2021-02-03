@@ -10,7 +10,7 @@ client = discord.Client()
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
-    channel = client.get_channel(806497843158319104)
+    channel = client.get_channel('channel id')
     while(True):
         embed=discord.Embed(title="Etherum", description=str(cryptocompare.get_price('ETH','USD')['ETH']['USD'])+"$")
         embed.set_thumbnail(url="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ethereum-icon-purple.svg/1200px-Ethereum-icon-purple.svg.png")
